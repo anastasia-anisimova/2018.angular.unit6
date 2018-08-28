@@ -2,4 +2,4 @@
   Сделать: {{task.title}}, приоритет: {{task.priority}}
 </p>
 
-<button (click)="moveAhead()">Вперед</button>
+<button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>

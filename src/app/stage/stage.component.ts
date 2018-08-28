@@ -11,6 +11,9 @@ export class StageComponent implements OnInit {
 
   @Input()
   stage: Stage;
+  @Input()
+  moveEnabled: boolean;
+
   taskName: string;
 
   @Output()

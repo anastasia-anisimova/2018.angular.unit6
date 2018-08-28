@@ -15,14 +15,9 @@ export class BoardComponent implements OnInit {
   }
 
   ngOnInit() {
-
   }
 
   onMoveTask($event: Task, i: number) {
-    if (this.stages.length > i + 1) {
-      this.stages[i + 1].tasks.push($event);
-    }
-
-
+    this.stages[i + 1].tasks.push($event);
   }
 }

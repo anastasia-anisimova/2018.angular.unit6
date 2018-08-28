@@ -11,6 +11,9 @@ export class TaskComponent implements OnInit {
   @Input()
   task: Task;
 
+  @Input()
+  moveEnabled: boolean;
+
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
 
