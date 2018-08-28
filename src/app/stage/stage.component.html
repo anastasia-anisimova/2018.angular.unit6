@@ -1,0 +1,12 @@
+<p>
+  {{stage.name}}
+  <label title="Название задачи">
+    <input [(ngModel)]="taskName">
+  </label>
+  <button (click)="createTask()">Создать</button>
+</p>
+
+
+<div *ngFor="let task of stage.tasks">
+  <app-task (moveTask)="onTaskMoved($event)" [task]="task"></app-task>
+</div>

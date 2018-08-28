@@ -1,0 +1,3 @@
+<div *ngFor="let stage of stages; let i=index">
+  <app-stage (moveTask)="onMoveTask($event, i)" [stage]="stage"></app-stage>
+</div>
