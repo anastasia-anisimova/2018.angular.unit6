@@ -1,0 +1,44 @@
+form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  font-size: 1.2vmax;
+  border-bottom: 0.1vmax solid black;
+  padding-bottom: 2vh;
+}
+
+textarea, input {
+  vertical-align: top;
+  width: 21vw;
+}
+
+button {
+  width: 5vmax;
+  height: auto;
+  font-size: 1vmax;
+}
+
+select {
+  font-size: 0.8vmax;
+  max-width: 7vw;
+  max-height: 3vh;
+  margin-left: 0.5vw;
+}
+
+.add_button {
+  margin-left: 10vw;
+  width: 2vmax;
+  padding: 0.2vmax;
+  border: none;
+  border-radius: 50%;
+  font-size: 1vmax;
+  font-weight: bold;
+  color: #E5FFFF;
+  background-color: #51B886;
+}
+
+label {
+  display: flex;
+  flex-flow: row wrap;
+  justify-items: flex-start;
+}

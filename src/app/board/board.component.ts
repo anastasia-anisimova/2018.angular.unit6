@@ -20,4 +20,8 @@ export class BoardComponent implements OnInit {
   onMoveTask($event: Task, i: number) {
     this.stages[i + 1].tasks.push($event);
   }
+
+  onDropTask($event: Task, i: number) {
+    this.stages[i - 1].tasks.push($event);
+  }
 }

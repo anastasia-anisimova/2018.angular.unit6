@@ -1,0 +1,44 @@
+button {
+  width: 5vmax;
+  height: auto;
+  font-size: 1vmax;
+  background-color: #51B886;
+  border: none;
+  box-shadow: inset 0.2vw 0.2vw 2vmax rgba(0, 0, 0, 0.5);
+  color: #E2DFDF;
+  font-weight: bold;
+}
+
+.flexButton {
+  display: flex;
+  justify-content: space-around;
+}
+
+p {
+  padding: 1vmax;
+  width: 20vw;
+  color: #292928;
+  font-weight: bold;
+  font-size: 1.4vmax;
+}
+
+.middle {
+  background-color: #E0E91C;
+}
+
+.high {
+  background-color: #F75045;
+}
+
+.low {
+  background-color: #6FF745;
+}
+
+.done {
+  background-color: #9D9995;
+}
+
+span {
+  color: #1B4631;
+  font-size: 1vmax;
+}

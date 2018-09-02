@@ -1,0 +1,28 @@
+<form [formGroup]="taskForm" (submit)="createTask()">
+  <br>
+  <div>
+    <label title="Name">
+      Name:
+      <br>
+      <input formControlName="name" placeholder="Task">
+    </label>
+  </div>
+  <app-control-error [control]="taskForm.controls.name"></app-control-error>
+  <label title="Description">
+    Description:
+    <br>
+    <textarea formControlName="description" cols="30" rows="3" placeholder="Description"></textarea>
+  </label>
+  <app-control-error [control]="taskForm.controls.description"></app-control-error>
+  <br>
+  <label title="Priority">
+    Priority:
+    <select formControlName="priority">
+      <option *ngFor="let priority of priorities" [value]="priority">
+        {{priority}}
+      </option>
+    </select>
+  </label>
+  <br>
+  <button class="add_button" type="submit">+</button>
+</form>

@@ -7,15 +7,18 @@ import {Task} from '../task';
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
-
   @Input()
   task: Task;
-
+  @Input()
+  dropEnabled: boolean;
   @Input()
   moveEnabled: boolean;
-
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  dropTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  delTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor() {
   }
@@ -26,4 +29,30 @@ export class TaskComponent implements OnInit {
   moveAhead() {
     this.moveTask.emit(this.task);
   }
+
+  dropBack() {
+    this.dropTask.emit(this.task);
+  }
+
+  delete() {
+    this.delTask.emit(this.task);
+  }
+
+  getStyleTask(): string {
+    if (this.moveEnabled) {
+      switch (this.task.priority) {
+        case 'High': {
+          return 'high';
+        }
+        case 'Middle': {
+          return 'middle';
+        }
+        case 'Low': {
+          return 'low';
+        }
+      }
+    }
+    return 'done';
+  }
 }
+

@@ -1,0 +1,17 @@
+.wrap {
+  padding: 1vmax;
+  width: 22vw;
+  border: 0.1vmax solid black;
+  border-collapse: inherit;
+  margin: 0.4vmax;
+  background-color: #EFECEC;
+}
+
+div .stage {
+  display: flex;
+  flex-flow: column wrap;
+  font-weight: bold;
+  font-size: 2vmax;
+  text-align: center;
+}
+

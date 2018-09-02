@@ -1,5 +1,12 @@
-<p>
-  Сделать: {{task.title}}, приоритет: {{task.priority}}
+<p [style.word-wrap]="'break-word'" [ngClass]="getStyleTask()">
+  {{task.title}}
+  <br>
+  <span>Description:</span> <br>{{task.description}} <br>
+  <span>Priority: {{task.priority}}</span> <br>
 </p>
+<div class="flexButton">
+  <button (click)="delete()">Delete</button>
+  <button *ngIf="dropEnabled" (click)="dropBack()">Назад</button>
+  <button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>
+</div>
 
-<button *ngIf="moveEnabled" (click)="moveAhead()">Вперед</button>

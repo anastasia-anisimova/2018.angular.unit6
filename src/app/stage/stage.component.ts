@@ -10,29 +10,37 @@ import {Task} from '../task';
 export class StageComponent implements OnInit {
 
   @Input()
+  dropEnabled: boolean;
+  @Input()
   stage: Stage;
   @Input()
   moveEnabled: boolean;
-
-  taskName: string;
-
   @Output()
   moveTask: EventEmitter<Task> = new EventEmitter<Task>();
+  @Output()
+  dropTask: EventEmitter<Task> = new EventEmitter<Task>();
 
   constructor() {
-
   }
 
   ngOnInit() {
   }
 
-  createTask() {
-    this.stage.tasks.push(new Task(this.taskName, 1));
-    this.taskName = '';
+  createTask(task: Task) {
+    this.stage.tasks.push(task);
   }
 
   onTaskMoved($event: Task) {
     this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
     this.moveTask.emit($event);
+  }
+
+  onTaskDrop($event: Task) {
+    this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
+    this.dropTask.emit($event);
+  }
+
+  onTaskDelete($event: Task) {
+    this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
   }
 }

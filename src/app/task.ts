@@ -1,9 +1,13 @@
 export class Task {
   title: string;
-  priority = 1;
+  description: string;
+  priority: string;
 
-  constructor(title: string, priority: number) {
+  constructor(title: string, description: string, priority: string) {
     this.title = title;
+    this.description = description;
     this.priority = priority;
   }
 }
+
+
