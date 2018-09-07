@@ -13,7 +13,6 @@ export class TaskFormComponent implements OnInit {
   create: EventEmitter<Task> = new EventEmitter<Task>();
   taskForm: FormGroup;
   priorities: string[] = ['High', 'Middle', 'Low'];
-  pr: [{ value: 'High', style: 'high' }, { value: 'Middle', style: 'middle' }];
 
   constructor() {
     this.taskForm = new FormGroup({

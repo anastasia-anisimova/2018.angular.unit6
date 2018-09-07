@@ -22,19 +22,19 @@ p {
   font-size: 1.4vmax;
 }
 
-.Middle {
+.middle {
   background-color: #E0E91C;
 }
 
-.High {
+.high {
   background-color: #F75045;
 }
 
-.Low {
+.low {
   background-color: #6FF745;
 }
 
-.Done {
+.done {
   background-color: #9D9995;
 }
 

@@ -41,8 +41,8 @@ export class TaskComponent implements OnInit {
 
   getStyleTask(): string {
     if (this.moveEnabled) {
-      return this.task.priority;
+      return this.task.priority.toLowerCase();
     }
-    return 'Done';
+    return 'done';
   }
 }

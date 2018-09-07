@@ -30,20 +30,20 @@ export class StageComponent implements OnInit {
     this.stage.tasks.push(task);
   }
 
-  filterTasks($event: Task, eventEmit?: EventEmitter<Task>) {
-    this.stage.tasks = this.stage.tasks.filter(value => value !== $event);
-    eventEmit.emit($event);
+  filterTasks(event: Task, eventEmit?: EventEmitter<Task>) {
+    this.stage.tasks = this.stage.tasks.filter(value => value !== event);
+    eventEmit.emit(event);
   }
 
-  onTaskMoved($event: Task) {
-    this.filterTasks($event, this.moveTask);
+  onTaskMoved(event: Task) {
+    this.filterTasks(event, this.moveTask);
   }
 
-  onTaskDrop($event: Task) {
-    this.filterTasks($event, this.dropTask);
+  onTaskDrop(event: Task) {
+    this.filterTasks(event, this.dropTask);
   }
 
-  onTaskDelete($event: Task) {
-    this.filterTasks($event);
+  onTaskDelete(event: Task) {
+    this.filterTasks(event);
   }
 }
