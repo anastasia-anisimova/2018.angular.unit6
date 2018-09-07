@@ -9,5 +9,3 @@ export class Task {
     this.priority = priority;
   }
 }
-
-

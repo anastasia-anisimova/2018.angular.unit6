@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from '../task';
 
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -40,19 +41,8 @@ export class TaskComponent implements OnInit {
 
   getStyleTask(): string {
     if (this.moveEnabled) {
-      switch (this.task.priority) {
-        case 'High': {
-          return 'high';
-        }
-        case 'Middle': {
-          return 'middle';
-        }
-        case 'Low': {
-          return 'low';
-        }
-      }
+      return this.task.priority;
     }
-    return 'done';
+    return 'Done';
   }
 }
-
