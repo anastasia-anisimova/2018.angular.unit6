@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  width: 80vw;
+  min-height: 100vh;
+  background-color: #51B886;
+}
+button {
+  cursor: pointer;
+}
+

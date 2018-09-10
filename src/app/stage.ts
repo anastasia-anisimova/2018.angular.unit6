@@ -9,4 +9,4 @@ export class Stage {
   }
 }
 
-export const Stages: Stage[] = [new Stage('План'), new Stage('В работе'), new Stage('Готово')];
+export const Stages: Stage[] = [new Stage('To Do'), new Stage('In Progress'), new Stage('Done')];
