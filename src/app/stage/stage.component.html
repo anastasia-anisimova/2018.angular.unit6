@@ -1,12 +1,13 @@
-<p>
-  {{stage.name}}
-  <label title="Название задачи">Задача:
-    <input [(ngModel)]="taskName">
-  </label>
-  <button (click)="createTask()">Создать</button>
-</p>
-
-
-<div *ngFor="let task of stage.tasks">
-  <app-task [moveEnabled]="moveEnabled" (moveTask)="onTaskMoved($event)" [task]="task"></app-task>
+<div class="wrap">
+  <div class="stage">
+    {{stage.name}}
+    <br>
+    <app-task-form (create)="createTask($event)"></app-task-form>
+  </div>
+  <div *ngFor="let task of stage.tasks">
+    <app-task [moveEnabled]="moveEnabled" [dropEnabled]="dropEnabled" (moveTask)="onTaskMoved($event)"
+              (dropTask)="onTaskDrop($event)" (delTask)="onTaskDelete($event)" [task]="task"></app-task>
+  </div>
 </div>
+
+

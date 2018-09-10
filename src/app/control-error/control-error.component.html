@@ -1,0 +1,8 @@
+<div *ngIf="control.invalid">
+  <div *ngIf="control.errors.required">
+    This field cannot be empty
+  </div>
+  <div *ngIf="control.errors.maxlength">
+    Maximum 100 characters
+  </div>
+</div>
