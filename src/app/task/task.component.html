@@ -1,12 +1,46 @@
 <p [style.word-wrap]="'break-word'" [ngClass]="getStyleTask()">
-  {{task.title}}
+  {{task.name}}
   <br>
   <span>Description:</span> <br>{{task.description}} <br>
-  <span>Priority: {{task.priority}}</span> <br>
+  <span>Executor: {{task.executor}}</span> <br>
+  <span>Priority: {{this.prioritiesName[task.priority-1]}}</span> <br>
 </p>
-<div class="flexButton">
-  <button (click)="delete()">Delete</button>
-  <button *ngIf="dropEnabled" (click)="dropBack()">Back</button>
-  <button *ngIf="moveEnabled" (click)="moveAhead()">Forward</button>
+<div *ngIf="isEditTask">
+  <br>
+  <div>
+    <label title="Name">
+      Name:
+      <br>
+      <input placeholder="Task" [(ngModel)]="taskName">
+    </label>
+  </div>
+  <label title="Description">
+    Description:
+    <br>
+    <textarea [(ngModel)]="taskDescription" cols="30" rows="3" placeholder="Description"></textarea>
+  </label>
+  <br>
+  <label title="Priority">
+    Priority:
+    <select [(ngModel)]="taskPriority">
+      <option *ngFor="let priority of priorities; let i=index " [value]="priority">
+        {{this.prioritiesName[i]}}
+      </option>
+    </select>
+  </label>
+  <br>
+  <label title="Исполнитель задачи">Исполнитель:
+    <select [(ngModel)]="taskExecutor">
+      <option *ngFor="let exec of executors" [value]="exec">{{exec}}</option>
+    </select>
+  </label>
+  <br>
+  <button (click)="onEditFinishTask()">Сохранить</button>
+  <button (click)="onEditCancelTask()">Отмена</button>
 </div>
-
+<div class="flexButton">
+  <button  (click)="deleteTask()">Delete</button>
+  <button (click)="onEditStartTask()">Edit</button>
+  <button *ngIf="dropEnabled" (click)="dropBack()">Back</button>
+  <button *ngIf="moveEnabled" (click)="moveAhead()">Forward </button>
+</div>

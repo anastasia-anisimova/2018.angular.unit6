@@ -4,25 +4,32 @@
     <label title="Name">
       Name:
       <br>
-      <input formControlName="name" placeholder="Task">
+      <input formControlName="taskName" placeholder="Task">
     </label>
   </div>
-  <app-control-error [control]="taskForm.controls.name"></app-control-error>
+  <app-control-error [control]="taskForm.controls.taskName"></app-control-error>
   <label title="Description">
     Description:
     <br>
-    <textarea formControlName="description" cols="30" rows="3" placeholder="Description"></textarea>
+    <textarea formControlName="taskDescription" cols="30" rows="3" placeholder="Description"></textarea>
   </label>
-  <app-control-error [control]="taskForm.controls.description"></app-control-error>
+  <app-control-error [control]="taskForm.controls.taskDescription"></app-control-error>
   <br>
   <label title="Priority">
     Priority:
-    <select formControlName="priority">
-      <option *ngFor="let priority of priorities" [value]="priority">
-        {{priority}}
+    <select formControlName="taskPriority">
+      <option *ngFor="let priority of priorities; let i=index" [value]="priority">
+        {{this.prioritiesName[i]}}
       </option>
     </select>
   </label>
+  <br>
+  <label title="Исполнитель задачи">Исполнитель:
+    <select formControlName="executorName">
+      <option *ngFor="let exec of executors" [value]="exec">{{exec}}</option>
+    </select>
+  </label>
+  <app-control-error [control]="taskForm.controls.executorName"></app-control-error>
   <br>
   <button class="add_button" type="submit">+</button>
 </form>

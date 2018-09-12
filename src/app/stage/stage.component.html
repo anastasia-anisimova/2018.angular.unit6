@@ -1,13 +1,22 @@
 <div class="wrap">
-  <div class="stage">
+  <div class="stage" *ngIf="!isEditStage">
     {{stage.name}}
-    <br>
-    <app-task-form (create)="createTask($event)"></app-task-form>
+    <div>
+      <button (click)="onEditStart()">Edit</button>
+    </div>
   </div>
-  <div *ngFor="let task of stage.tasks">
-    <app-task [moveEnabled]="moveEnabled" [dropEnabled]="dropEnabled" (moveTask)="onTaskMoved($event)"
-              (dropTask)="onTaskDrop($event)" (delTask)="onTaskDelete($event)" [task]="task"></app-task>
+  <div *ngIf="isEditStage">
+    <input [(ngModel)]="stageName">
+    <button (click)="onEditFinish()">Save</button>
+    <button (click)="onEditCancel()">Cancel</button>
+  </div>
+  <app-task-form (create)="addTask($event)"></app-task-form>
+  <div *ngFor="let task of stage.tasks; let i=index">
+    <br>
+    <div>
+      <app-task [moveEnabled]="moveEnabled" [dropEnabled]="dropEnabled" (moveTask)="onTaskMoved($event)" (dropTask)="onTaskDrop($event)"
+        (delTask)="deleteTask($event)" [task]="task"></app-task>
+    </div>
+    <br>
   </div>
 </div>
-
-
