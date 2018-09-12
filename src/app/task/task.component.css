@@ -3,6 +3,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
   text-align: center;
+  margin: 0.2vmax;
 }
 
 p {

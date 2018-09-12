@@ -11,6 +11,3 @@ export class Stage {
         this.name = name;
     }
 }
-
- 
- 

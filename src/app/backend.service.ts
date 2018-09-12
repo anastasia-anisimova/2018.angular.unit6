@@ -38,11 +38,11 @@ export class BackendService {
     return this.http.put<Task>(this.url + 'tasks/' + task.id, task);
   }
 
-  deleteTask(taskId: number): Observable<Task> {
+  deleteTask(taskId: number)  {
     return this.http.delete<Task>(this.url + 'tasks/' + taskId);
   }
   
-  deleteStage(stageId: number): Observable<Stage> {
+  deleteStage(stageId: number){
     return this.http.delete<Stage>(this.url + 'stages/' + stageId);
   }
 }

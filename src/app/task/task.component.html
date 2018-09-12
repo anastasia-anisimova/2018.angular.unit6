@@ -29,14 +29,16 @@
     </select>
   </label>
   <br>
-  <label title="Исполнитель задачи">Исполнитель:
+  <label title="Исполнитель задачи">Executor:
     <select [(ngModel)]="taskExecutor">
       <option *ngFor="let exec of executors" [value]="exec">{{exec}}</option>
     </select>
   </label>
   <br>
-  <button (click)="onEditFinishTask()">Сохранить</button>
-  <button (click)="onEditCancelTask()">Отмена</button>
+  <div class="flexButton">
+  <button (click)="onEditFinishTask()">Save</button>
+  <button (click)="onEditCancelTask()">Cancel</button>
+</div>
 </div>
 <div class="flexButton">
   <button  (click)="deleteTask()">Delete</button>

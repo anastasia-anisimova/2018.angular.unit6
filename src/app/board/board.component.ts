@@ -16,7 +16,6 @@ export class BoardComponent implements OnInit, OnDestroy {
   getStagesSubscription: Subscription;
   refreshStage = new Subject();
   stageName: string;
-  isError = false;
 
   constructor(private service: BackendService) {
   }
@@ -42,33 +41,33 @@ export class BoardComponent implements OnInit, OnDestroy {
 
   onAddStage() {
     const stage = new Stage(this.stageName);
-    const newStageDescription = this.service
+    const newStageSubscription = this.service
       .addStage(stage)
       .subscribe(() => {
         this.refreshStage.next();
-        newStageDescription.unsubscribe();
+        newStageSubscription.unsubscribe();
       })
     this.stageName = '';
   }
 
   onDelAllTasks(stage: Stage) {
     for (let i = 0; i < stage.tasks.length; i++) {
-      let deleteTaskDescription = this.service
+      let deleteTaskSubscription = this.service
         .deleteTask(stage.tasks[i].id)
         .subscribe(() => {
           this.refreshStage.next();
-          deleteTaskDescription.unsubscribe();
+          deleteTaskSubscription.unsubscribe();
         })
     }
   }
 
   deleteStage(stage: Stage) {
     if (stage.tasks.length == 0) {
-      let deleteStageDescription = this.service
+      let deleteStageSubscription = this.service
         .deleteStage(stage.id)
         .subscribe(() => {
           this.refreshStage.next();
-          deleteStageDescription.unsubscribe();
+          deleteStageSubscription.unsubscribe();
         })
     }
     else alert('Сначала удалите все задачи');

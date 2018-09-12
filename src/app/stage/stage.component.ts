@@ -54,11 +54,11 @@ export class StageComponent implements OnInit, OnDestroy {
   }
 
   deleteTask(task: Task) {
-    const deleteTaskDescription = this.service
+    const deleteTaskSubscription = this.service
       .deleteTask(task.id)
       .subscribe(() => {
         this.refreshStage.next();
-        deleteTaskDescription.unsubscribe();
+        deleteTaskSubscription.unsubscribe();
       })
   }
 
