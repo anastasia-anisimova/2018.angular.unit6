@@ -10,6 +10,7 @@ import {TaskFormComponent} from './task-form/task-form.component';
 import { ControlErrorComponent } from './control-error/control-error.component';
 import {HttpClientModule} from '@angular/common/http';
 import {BackendService} from './backend.service';
+import { EditStageComponent } from './edit-stage/edit-stage.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {BackendService} from './backend.service';
     StageComponent,
     TaskComponent,
     TaskFormComponent,
-    ControlErrorComponent
+    ControlErrorComponent,
+    EditStageComponent
   ],
   imports: [
     BrowserModule,

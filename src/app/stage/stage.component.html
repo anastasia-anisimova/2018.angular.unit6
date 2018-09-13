@@ -1,14 +1,7 @@
 <div class="wrap">
-  <div class="stage" *ngIf="!isEditStage">
+  <div class="stage">
     {{stage.name}}
-    <div>
-      <button (click)="onEditStart()">Edit</button>
-    </div>
-  </div>
-  <div *ngIf="isEditStage">
-    <input [(ngModel)]="stageName">
-    <button (click)="onEditFinish()">Save</button>
-    <button (click)="onEditCancel()">Cancel</button>
+    <app-edit-stage [isEditStage]="isEditStage" [stage]="stage" [task]="task">  </app-edit-stage>
   </div>
   <app-task-form (create)="addTask($event)"></app-task-form>
   <div *ngFor="let task of stage.tasks; let i=index">

@@ -25,8 +25,11 @@ export class StageComponent implements OnInit, OnDestroy {
   @Output()
   dropTask: EventEmitter<Task> = new EventEmitter<Task>();
 
-  getTasksByStageSubscription: Subscription;
+
   refreshStage = new Subject();
+  getTasksByStageSubscription: Subscription;
+
+
   isEditStage = false;
   isEditTask = false;
   stageName: string;
@@ -74,24 +77,7 @@ export class StageComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.getTasksByStageSubscription.unsubscribe();
   }
-
-  onEditStart() {
-    this.isEditStage = true;
-    this.stageName = this.stage.name;
-  }
-
-  onEditFinish() {
-    this.isEditStage = false;
-    this.stage.name = this.stageName;
-    const updateStageSubscription = this.service
-      .updateStage(this.stage)
-      .subscribe(() => updateStageSubscription.unsubscribe());
-  }
-
-  onEditCancel() {
-    this.isEditStage = false;
-  }
-
+  
   onTaskDrop(event: Task) {
     this.filterTasks(event, this.dropTask);
   }
