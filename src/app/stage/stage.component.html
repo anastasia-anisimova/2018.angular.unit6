@@ -1,13 +1,15 @@
 <div class="wrap">
   <div class="stage">
     {{stage.name}}
-    <br>
-    <app-task-form (create)="createTask($event)"></app-task-form>
+    <app-edit-stage [isEditStage]="isEditStage" [stage]="stage" [task]="task">  </app-edit-stage>
   </div>
-  <div *ngFor="let task of stage.tasks">
-    <app-task [moveEnabled]="moveEnabled" [dropEnabled]="dropEnabled" (moveTask)="onTaskMoved($event)"
-              (dropTask)="onTaskDrop($event)" (delTask)="onTaskDelete($event)" [task]="task"></app-task>
+  <app-task-form (create)="addTask($event)"></app-task-form>
+  <div *ngFor="let task of stage.tasks; let i=index">
+    <br>
+    <div>
+      <app-task [moveEnabled]="moveEnabled" [dropEnabled]="dropEnabled" (moveTask)="onTaskMoved($event)" (dropTask)="onTaskDrop($event)"
+        (delTask)="deleteTask($event)" [task]="task"></app-task>
+    </div>
+    <br>
   </div>
 </div>
-
-

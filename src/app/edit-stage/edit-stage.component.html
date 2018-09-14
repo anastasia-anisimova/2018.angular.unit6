@@ -1,0 +1,10 @@
+<div *ngIf="!isEditStage">
+    <button (click)="onEditStart()">Edit</button>
+</div>
+<div *ngIf="isEditStage">
+    <input [(ngModel)]="stageName">
+    <button (click)="onEditFinish()">Save</button>
+    <button (click)="onEditCancel()">Cancel</button>
+</div>
+
+ 
