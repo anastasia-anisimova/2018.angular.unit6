@@ -2,4 +2,24 @@
   display: flex;
 }
 
+button{
+  width: 6vmax;
+  font-size: 0.9vmax;
+}
 
+.button_flex {
+  display: flex;
+  flex-flow: row nowrap;
+  margin-bottom: 1vmax;
+}
+
+.button_create_width {
+  margin-top: 0.3vmax;
+  width: 8vmax;
+  margin-right: 2vmax;
+}
+
+input {
+  margin-left: 0.5vmax;
+  width: 7.5vmax;
+}

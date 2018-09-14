@@ -1,5 +1,13 @@
 <div *ngFor="let stage of stages; let i=index; let isLast=last; let isFirst=first;">
-  <app-stage [moveEnabled]="!isLast" [dropEnabled]="!isFirst" (dropTask)="onDropTask($event, i)"
-             (moveTask)="onMoveTask($event, i)" [stage]="stage"></app-stage>
+  <app-stage [moveEnabled]="!isLast" [dropEnabled]="!isFirst" (dropTask)="onDropTask($event, i)" (moveTask)="onMoveTask($event, i)"
+    [stage]="stage"></app-stage>
+  <div class="button_flex">
+    <button (click)="onDelAllTasks(stage)">Delete tasks</button> <br>
+    <button (click)="deleteStage(stage)">Delete stage</button> <br>
+  </div>
 </div>
-
+<div>
+  <br>
+  <input [(ngModel)]="stageName">
+  <button class="button_create_width" (click)="onAddStage()">Create stage</button>
+</div>

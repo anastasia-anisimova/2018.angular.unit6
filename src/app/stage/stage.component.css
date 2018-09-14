@@ -14,3 +14,7 @@ div .stage {
   font-size: 2vmax;
   text-align: center;
 }
+
+button {
+  font-size: 0.8vmax;
+}
